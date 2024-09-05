@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: mail-healthcheck-included-in-liveness
+  mail:
+    host: localhost:25
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      group:
+        liveness:
+          additional-path: server:/livez
+#          exclude: db,ping,diskSpace,readinessState,mail
+      show-details: always
+#      validate-group-membership: false
